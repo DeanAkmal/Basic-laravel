@@ -98,7 +98,7 @@
 
        <!-- End Navbar -->
 
-<div class="container-fluid py-4">
+    <div class="container-fluid py-4">
 
        <!-- Main Content -->
          @include('separate.main')
