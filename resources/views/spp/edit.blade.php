@@ -5,6 +5,9 @@
   <!-- left column -->
   <div class="col-md-12">
     <!-- general form elements -->
+      <div class="d-flex justify-content-end mb-3">
+        <a href="{{route ('spp.create')}}" class="btn btn-primary">Tambah</a>
+      </div>
     <div class="card card-primary">
       <!-- /.card-header -->
       <!-- form start -->
