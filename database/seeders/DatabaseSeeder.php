@@ -21,10 +21,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call([
-            masyarakat::class,
-            pengaduan::class,
-            petugas::class,
-            tanggapan::class,
+            RoleSeeder::class,
         ]);
     }
 }
