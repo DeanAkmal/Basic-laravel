@@ -21,12 +21,7 @@ Route::get('/master', function () {
     return view('master');
 });
 
-Route::get('/spp', [SppController::class, 'index'])->name('spp.index');
-Route::get('/spp/create', [SppController::class, 'create'])->name('spp.create');
-Route::post('/spp', [SppController::class, 'store'])->name('spp.store');
-Route::get('/spp/{id_spp}/edit', [SppController::class, 'edit'])->name('spp.edit');
-Route::PUT('/spp{id_spp}/update',[SppController::class, 'update'])->name('spp.update');
-Route::delete('/spp{id_spp}',[SppController::class, 'destroy'])->name('spp.destroy');
+
 
 
 // web.php or routes.php (or similar)
@@ -38,7 +33,7 @@ Route::delete('/spp{id_spp}',[SppController::class, 'destroy'])->name('spp.destr
         'petugas' => 'petugas'
     ]);
 
-    Route::middleware([])->group(function(){
+    Route::middleware(['guest'])->group(function(){
         Route::controller(AuthController::class)->group(function(){
             Route::get('/login', 'login')->name('auth.login');
             Route::post('/authenticate', 'authenticate')->name('auth.authenticate');
@@ -71,5 +66,12 @@ Route::delete('/spp{id_spp}',[SppController::class, 'destroy'])->name('spp.destr
         Route::resource('kelas', KelasController::class)->parameters([
             'kelas' => 'kelas'
         ]);
+
+        Route::get('/spp', [SppController::class, 'index'])->name('spp.index');
+        Route::get('/spp/create', [SppController::class, 'create'])->name('spp.create');
+        Route::post('/spp', [SppController::class, 'store'])->name('spp.store');
+        Route::get('/spp/{id_spp}/edit', [SppController::class, 'edit'])->name('spp.edit');
+        Route::PUT('/spp{id_spp}/update',[SppController::class, 'update'])->name('spp.update');
+        Route::delete('/spp{id_spp}',[SppController::class, 'destroy'])->name('spp.destroy');
     
     });
